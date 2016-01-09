@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<script src="lib/jquery-1.11.0/jquery.min.js"></script>
+<script src="lib/detect-resize-0.5.3/jquery.resize.js"></script>
+<link href="lib/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet" />
+<script src="lib/jquery-ui-1.11.4/jquery-ui.min.js"></script>
+<script src="lib/d3-3.5.2/d3.min.js"></script>
+<script src="lib/vega-1.4.3/vega.min.js"></script>
+<script src="lib/lodash-2.2.1/lodash.min.js"></script>
+<script>var lodash = _.noConflict();</script>
+<link href="lib/ggvis-0.4.2/css/ggvis.css" rel="stylesheet" />
+<script src="lib/ggvis-0.4.2/js/ggvis.js"></script>
+
+</head>
+<body style="background-color:white;">
+<div id="plot_660052795-container" class="ggvis-output-container">
+  <div id="plot_660052795" class="ggvis-output"></div>
+  <div class="plot-gear-icon">
+    <nav class="ggvis-control">
+      <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
+      <ul class="ggvis-dropdown">
+        <li>
+          Renderer: 
+          <a id="plot_660052795_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_660052795" data-renderer="svg">SVG</a>
+           | 
+          <a id="plot_660052795_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_660052795" data-renderer="canvas">Canvas</a>
+        </li>
+        <li>
+          <a id="plot_660052795_download" class="ggvis-download" data-plot-id="plot_660052795">Download</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+<script type="text/javascript">
+var plot_660052795_spec = {
+  "data": [
+    {
+      "name": ".0/bin1/stack2",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "xmin_": "number",
+          "xmax_": "number",
+          "stack_upr_": "number",
+          "stack_lwr_": "number"
+        }
+      },
+      "values": "\"xmin_\",\"xmax_\",\"stack_upr_\",\"stack_lwr_\"\n-10,10,283,0\n10,30,488,0\n30,50,90,0\n50,70,31,0\n70,90,15,0\n90,110,8,0\n110,130,6,0\n130,150,1,0\n150,170,4,0\n170,190,2,0\n190,210,4,0\n210,230,0,0\n230,250,0,0\n250,270,0,0\n270,290,4,0\n290,310,0,0\n310,330,0,0\n330,350,0,0\n350,370,0,0\n370,390,1,0\n390,410,2,0\n410,430,0,0\n430,450,2,0\n450,470,0,0\n470,490,0,0\n490,510,0,0\n510,530,0,0\n530,550,0,0\n550,570,0,0\n570,590,0,0\n590,610,0,0\n610,630,0,0\n630,650,2,0"
+    },
+    {
+      "name": "scale/x",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "domain": "number"
+        }
+      },
+      "values": "\"domain\"\n-43\n683"
+    },
+    {
+      "name": "scale/y",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "domain": "number"
+        }
+      },
+      "values": "\"domain\"\n0\n512.4"
+    }
+  ],
+  "scales": [
+    {
+      "name": "x",
+      "domain": {
+        "data": "scale/x",
+        "field": "data.domain"
+      },
+      "zero": false,
+      "nice": false,
+      "clamp": false,
+      "range": "width"
+    },
+    {
+      "name": "y",
+      "domain": {
+        "data": "scale/y",
+        "field": "data.domain"
+      },
+      "zero": false,
+      "nice": false,
+      "clamp": false,
+      "range": "height"
+    }
+  ],
+  "marks": [
+    {
+      "type": "rect",
+      "properties": {
+        "update": {
+          "stroke": {
+            "value": "#000000"
+          },
+          "fill": {
+            "value": "#333333"
+          },
+          "x": {
+            "scale": "x",
+            "field": "data.xmin_"
+          },
+          "x2": {
+            "scale": "x",
+            "field": "data.xmax_"
+          },
+          "y": {
+            "scale": "y",
+            "field": "data.stack_upr_"
+          },
+          "y2": {
+            "scale": "y",
+            "field": "data.stack_lwr_"
+          }
+        },
+        "ggvis": {
+          "data": {
+            "value": ".0/bin1/stack2"
+          }
+        }
+      },
+      "from": {
+        "data": ".0/bin1/stack2"
+      }
+    }
+  ],
+  "legends": [],
+  "axes": [
+    {
+      "type": "x",
+      "scale": "x",
+      "orient": "bottom",
+      "layer": "back",
+      "grid": true,
+      "title": "timePerImp"
+    },
+    {
+      "type": "y",
+      "scale": "y",
+      "orient": "left",
+      "layer": "back",
+      "grid": true,
+      "title": "count"
+    }
+  ],
+  "padding": null,
+  "ggvis_opts": {
+    "width": 600,
+    "height": 400,
+    "keep_aspect": false,
+    "resizable": true,
+    "padding": {},
+    "duration": 250,
+    "renderer": "svg",
+    "hover_duration": 0
+  },
+  "handlers": null
+};
+ggvis.getPlot("plot_660052795").parseSpec(plot_660052795_spec);
+</script>
+</body>
+</html>

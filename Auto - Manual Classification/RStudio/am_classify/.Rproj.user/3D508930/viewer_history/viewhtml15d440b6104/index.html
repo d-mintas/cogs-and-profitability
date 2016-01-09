@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<script src="lib/jquery-1.11.0/jquery.min.js"></script>
+<script src="lib/detect-resize-0.5.3/jquery.resize.js"></script>
+<link href="lib/jquery-ui-1.11.4/jquery-ui.min.css" rel="stylesheet" />
+<script src="lib/jquery-ui-1.11.4/jquery-ui.min.js"></script>
+<script src="lib/d3-3.5.2/d3.min.js"></script>
+<script src="lib/vega-1.4.3/vega.min.js"></script>
+<script src="lib/lodash-2.2.1/lodash.min.js"></script>
+<script>var lodash = _.noConflict();</script>
+<link href="lib/ggvis-0.4.2/css/ggvis.css" rel="stylesheet" />
+<script src="lib/ggvis-0.4.2/js/ggvis.js"></script>
+
+</head>
+<body style="background-color:white;">
+<div id="plot_495702438-container" class="ggvis-output-container">
+  <div id="plot_495702438" class="ggvis-output"></div>
+  <div class="plot-gear-icon">
+    <nav class="ggvis-control">
+      <a class="ggvis-dropdown-toggle" title="Controls" onclick="return false;"></a>
+      <ul class="ggvis-dropdown">
+        <li>
+          Renderer: 
+          <a id="plot_495702438_renderer_svg" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_495702438" data-renderer="svg">SVG</a>
+           | 
+          <a id="plot_495702438_renderer_canvas" class="ggvis-renderer-button" onclick="return false;" data-plot-id="plot_495702438" data-renderer="canvas">Canvas</a>
+        </li>
+        <li>
+          <a id="plot_495702438_download" class="ggvis-download" data-plot-id="plot_495702438">Download</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+<script type="text/javascript">
+var plot_495702438_spec = {
+  "data": [
+    {
+      "name": ".0/bin1/stack2",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "xmin_": "number",
+          "xmax_": "number",
+          "stack_upr_": "number",
+          "stack_lwr_": "number"
+        }
+      },
+      "values": "\"xmin_\",\"xmax_\",\"stack_upr_\",\"stack_lwr_\"\n-2.5,2.5,71,0\n2.5,7.5,103,0\n7.5,12.5,204,0\n12.5,17.5,138,0\n17.5,22.5,142,0\n22.5,27.5,85,0\n27.5,32.5,43,0\n32.5,37.5,38,0\n37.5,42.5,18,0\n42.5,47.5,13,0\n47.5,52.5,12,0\n52.5,57.5,12,0\n57.5,62.5,3,0\n62.5,67.5,7,0\n67.5,72.5,3,0\n72.5,77.5,2,0\n77.5,82.5,7,0\n82.5,87.5,3,0\n87.5,92.5,3,0\n92.5,97.5,4,0\n97.5,102.5,0,0\n102.5,107.5,2,0\n107.5,112.5,5,0\n112.5,117.5,2,0\n117.5,122.5,1,0\n122.5,127.5,0,0\n127.5,132.5,1,0\n132.5,137.5,0,0\n137.5,142.5,0,0\n142.5,147.5,0,0\n147.5,152.5,2,0\n152.5,157.5,2,0\n157.5,162.5,0,0\n162.5,167.5,0,0\n167.5,172.5,0,0\n172.5,177.5,0,0\n177.5,182.5,0,0\n182.5,187.5,2,0\n187.5,192.5,0,0\n192.5,197.5,0,0\n197.5,202.5,0,0\n202.5,207.5,4,0\n207.5,212.5,0,0\n212.5,217.5,0,0\n217.5,222.5,0,0\n222.5,227.5,0,0\n227.5,232.5,0,0\n232.5,237.5,0,0\n237.5,242.5,0,0\n242.5,247.5,0,0\n247.5,252.5,0,0\n252.5,257.5,0,0\n257.5,262.5,0,0\n262.5,267.5,0,0\n267.5,272.5,0,0\n272.5,277.5,0,0\n277.5,282.5,2,0\n282.5,287.5,0,0\n287.5,292.5,2,0\n292.5,297.5,0,0\n297.5,302.5,0,0\n302.5,307.5,0,0\n307.5,312.5,0,0\n312.5,317.5,0,0\n317.5,322.5,0,0\n322.5,327.5,0,0\n327.5,332.5,0,0\n332.5,337.5,0,0\n337.5,342.5,0,0\n342.5,347.5,0,0\n347.5,352.5,0,0\n352.5,357.5,0,0\n357.5,362.5,0,0\n362.5,367.5,0,0\n367.5,372.5,0,0\n372.5,377.5,0,0\n377.5,382.5,1,0\n382.5,387.5,0,0\n387.5,392.5,0,0\n392.5,397.5,0,0\n397.5,402.5,0,0\n402.5,407.5,2,0\n407.5,412.5,0,0\n412.5,417.5,0,0\n417.5,422.5,0,0\n422.5,427.5,0,0\n427.5,432.5,0,0\n432.5,437.5,0,0\n437.5,442.5,0,0\n442.5,447.5,2,0\n447.5,452.5,0,0\n452.5,457.5,0,0\n457.5,462.5,0,0\n462.5,467.5,0,0\n467.5,472.5,0,0\n472.5,477.5,0,0\n477.5,482.5,0,0\n482.5,487.5,0,0\n487.5,492.5,0,0\n492.5,497.5,0,0\n497.5,502.5,0,0\n502.5,507.5,0,0\n507.5,512.5,0,0\n512.5,517.5,0,0\n517.5,522.5,0,0\n522.5,527.5,0,0\n527.5,532.5,0,0\n532.5,537.5,0,0\n537.5,542.5,0,0\n542.5,547.5,0,0\n547.5,552.5,0,0\n552.5,557.5,0,0\n557.5,562.5,0,0\n562.5,567.5,0,0\n567.5,572.5,0,0\n572.5,577.5,0,0\n577.5,582.5,0,0\n582.5,587.5,0,0\n587.5,592.5,0,0\n592.5,597.5,0,0\n597.5,602.5,0,0\n602.5,607.5,0,0\n607.5,612.5,0,0\n612.5,617.5,0,0\n617.5,622.5,0,0\n622.5,627.5,0,0\n627.5,632.5,0,0\n632.5,637.5,2,0"
+    },
+    {
+      "name": "scale/x",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "domain": "number"
+        }
+      },
+      "values": "\"domain\"\n-34.5\n669.5"
+    },
+    {
+      "name": "scale/y",
+      "format": {
+        "type": "csv",
+        "parse": {
+          "domain": "number"
+        }
+      },
+      "values": "\"domain\"\n0\n214.2"
+    }
+  ],
+  "scales": [
+    {
+      "name": "x",
+      "domain": {
+        "data": "scale/x",
+        "field": "data.domain"
+      },
+      "zero": false,
+      "nice": false,
+      "clamp": false,
+      "range": "width"
+    },
+    {
+      "name": "y",
+      "domain": {
+        "data": "scale/y",
+        "field": "data.domain"
+      },
+      "zero": false,
+      "nice": false,
+      "clamp": false,
+      "range": "height"
+    }
+  ],
+  "marks": [
+    {
+      "type": "rect",
+      "properties": {
+        "update": {
+          "stroke": {
+            "value": "#000000"
+          },
+          "fill": {
+            "value": "#333333"
+          },
+          "x": {
+            "scale": "x",
+            "field": "data.xmin_"
+          },
+          "x2": {
+            "scale": "x",
+            "field": "data.xmax_"
+          },
+          "y": {
+            "scale": "y",
+            "field": "data.stack_upr_"
+          },
+          "y2": {
+            "scale": "y",
+            "field": "data.stack_lwr_"
+          }
+        },
+        "ggvis": {
+          "data": {
+            "value": ".0/bin1/stack2"
+          }
+        }
+      },
+      "from": {
+        "data": ".0/bin1/stack2"
+      }
+    }
+  ],
+  "legends": [],
+  "axes": [
+    {
+      "type": "x",
+      "scale": "x",
+      "orient": "bottom",
+      "layer": "back",
+      "grid": true,
+      "title": "timePerImp"
+    },
+    {
+      "type": "y",
+      "scale": "y",
+      "orient": "left",
+      "layer": "back",
+      "grid": true,
+      "title": "count"
+    }
+  ],
+  "padding": null,
+  "ggvis_opts": {
+    "width": 600,
+    "height": 400,
+    "keep_aspect": false,
+    "resizable": true,
+    "padding": {},
+    "duration": 250,
+    "renderer": "svg",
+    "hover_duration": 0
+  },
+  "handlers": null
+};
+ggvis.getPlot("plot_495702438").parseSpec(plot_495702438_spec);
+</script>
+</body>
+</html>

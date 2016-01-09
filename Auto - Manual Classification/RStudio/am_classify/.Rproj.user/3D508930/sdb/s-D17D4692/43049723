@@ -1,0 +1,25 @@
+{
+    "contents" : "",
+    "created" : 1449486365847.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "43049723",
+    "lastKnownWriteTime" : 176093659229,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "lkwb05xew0",
+        "caption" : "time.lite.c",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=time.lite.c&cache_key=lkwb05xew0",
+        "displayedObservations" : "817",
+        "environment" : "",
+        "object" : "time.lite.c",
+        "totalObservations" : "817",
+        "variables" : "8"
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "type" : "r_dataframe"
+}

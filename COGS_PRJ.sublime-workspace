@@ -1,0 +1,724 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"html",
+				"html	html"
+			],
+			[
+				"name",
+				"__name__"
+			],
+			[
+				"Context",
+				"ContextManager"
+			],
+			[
+				"decimal",
+				"Decimal"
+			],
+			[
+				"nums",
+				"nums_sum_sq"
+			],
+			[
+				"dataset",
+				"dataset2"
+			],
+			[
+				"if",
+				"ifmain	if __name__ == '__main__'"
+			],
+			[
+				"js",
+				"test_json"
+			],
+			[
+				"bash",
+				"bash_profile"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "from gini_coef import GRLC as gini\nimport json_load as jl\n\njd = jl.getJSON()\n\nd = jd['RECORDS']\n\n\n",
+			"file": "Auto - Manual Classification/Python/Gini/gini_main.py",
+			"file_size": 96,
+			"file_write_time": 130947691040000000,
+			"settings":
+			{
+				"buffer_size": 98,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/Dino/Dropbox/Work/ROT - DB/Login Info.txt",
+			"settings":
+			{
+				"buffer_size": 139,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Auto - Manual Classification/Python/Gini/json_load.py",
+			"settings":
+			{
+				"buffer_size": 110,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Auto - Manual Classification/Python/Gini/gini_coef.py",
+			"settings":
+			{
+				"buffer_size": 1233,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Auto - Manual Classification/Python/Gini/json_idx.json",
+			"settings":
+			{
+				"buffer_size": 1714983,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				"Syntax Check"
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 127.0,
+		"last_filter": "insta",
+		"selected_items":
+		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"i",
+				"Package Control: Install Package"
+			],
+			[
+				"insta	",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Discover Packages"
+			],
+			[
+				"build",
+				"Build: New Build System"
+			],
+			[
+				"table ",
+				"Table Editor: Enable for current view"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"packag",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"package mana",
+				"Package Control: List Unmanaged Packages"
+			],
+			[
+				"packa",
+				"Preferences: Browse Packages"
+			],
+			[
+				"markdown",
+				"Set Syntax: MultiMarkdown"
+			]
+		],
+		"width": 448.0
+	},
+	"console":
+	{
+		"height": 146.0,
+		"history":
+		[
+			"res",
+			"3+4",
+			"python",
+			"python -m \"wgeom.py\"",
+			"python -m wgeom.py",
+			"3+4",
+			"print(\"hello\")",
+			"res",
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/Dino/Dropbox/Work/Projects/COGS Estimation",
+		"/Users/Dino/Dropbox/Work/Projects/COGS Estimation/Auto - Manual Classification",
+		"/Users/Dino/Dropbox/Work/Projects/COGS Estimation/Auto - Manual Classification/Python",
+		"/Users/Dino/Dropbox/Work/Projects/COGS Estimation/Auto - Manual Classification/Python/Gini"
+	],
+	"file_history":
+	[
+		"/Users/Dino/Dropbox/Work/ROT - DB/Login Info.txt",
+		"/Users/Dino/Dropbox/Work/Projects/COGS Estimation/Auto - Manual Classification/Python/Gini/json_load.py",
+		"/Users/Dino/Documents/query_result.csv",
+		"/Users/Dino/Dropbox/Work/Projects/COGS Estimation/Auto - Manual Classification/Python/Gini/COGS_train_fixed.json",
+		"/Users/dino/Dropbox/Work/Projects/COGS Estimation/Auto - Manual Classification/Python/Gini/COGS_train_fixed2.json",
+		"/Users/dino/Documents/jobScoreSQLquery.sql",
+		"/Users/dino/Dropbox/Work/Projects/COGS Estimation/Auto - Manual Classification/Python/SQL/get_cogs_train_data.sql",
+		"/Users/dino/Documents/ss.html",
+		"/Users/dino/Downloads/phog 2/anna_binMatrix.m",
+		"/Users/dino/Dropbox/Work/ROT - DB/MySQL Scripts/select jobScoreInt2.*, uniquePartyStationOrders.st.sql",
+		"/Users/dino/Documents/HOME_11_28_2015__ONETAB_LIST.txt",
+		"/Users/dino/Dropbox/Work/ROT - DB/Login Info.txt",
+		"/Users/dino/Library/Application Support/Sublime Text 3/Packages/User/SublimeServer.sublime-settings",
+		"/Users/dino/Documents/wgeom.py",
+		"/Users/dino/Library/Application Support/Sublime Text 3/Packages/Python PEP8 Autoformat/Default (OSX).sublime-keymap",
+		"/Users/dino/Library/Application Support/Sublime Text 3/Packages/User/pep8_autoformat.sublime-settings",
+		"/Users/dino/Library/Application Support/Sublime Text 3/Packages/Python PEP8 Autoformat/pep8_autoformat.sublime-settings",
+		"/Users/dino/Dropbox/jobs_am_clust.json",
+		"/Users/dino/Documents/multidayOrders",
+		"/Users/dino/Documents/cpdata.txt",
+		"/Users/dino/Documents/inflation_idx.csv",
+		"/Users/dino/Documents/inflation_idx_Jan2009_Aug2015.js",
+		"/Users/dino/Documents/ONETAB_LIST-746_TABS-11_04_2015.txt",
+		"/Users/dino/Downloads/pdash_work/assets/javascripts/application.coffee",
+		"/Users/dino/Downloads/pdash_work/widgets/autolist/autolist.html",
+		"/Users/dino/Downloads/pdash_work/widgets/alert/alert.html",
+		"/Users/dino/Downloads/pdash_work/widgets/alert/alert.coffee",
+		"/Users/dino/Downloads/pdash_work/widgets/list/list.scss",
+		"/Users/dino/Downloads/pdash_work/widgets/alert/alert.scss",
+		"/Users/dino/Downloads/pdash_work/Gemfile",
+		"/Users/dino/Downloads/pdash_work/Gemfile.lock",
+		"/Users/dino/data123.csv",
+		"/Users/dino/flaskapp/test_app/routes.py",
+		"/Users/dino/flaskapp/test_app/README.md",
+		"/Users/dino/dollarIDX_2009-2015.csv",
+		"/Users/dino/ALL_REV_DATA_2009-2015.csv",
+		"/Users/dino/Dropbox/Work/Forecasting/REVENUE UP TO JULY-2015.txt",
+		"/Users/dino/pdash/widgets/alert/alert.html",
+		"/Users/dino/pdash/dashboards/sample.erb",
+		"/Users/dino/pdash/assets/javascripts/application.coffee",
+		"/Users/dino/pdash/dashboards/prod_dash.erb",
+		"/Users/dino/pdash/widgets/alert/alert.scss",
+		"/Users/dino/pdash/config.ru",
+		"/Users/dino/pdash/widgets/clock/clock.scss",
+		"/Users/dino/Documents/REVENUE_THROUGH_JUNE_2015",
+		"/Users/dino/Documents/p096_sudoku.txt",
+		"/Users/dino/Desktop/index.html",
+		"/Users/dino/Desktop/BOWM.json",
+		"/Users/dino/Desktop/BOW.json",
+		"/Users/dino/Projects/iPython Notebooks/BOW_json_utf8.json",
+		"/Users/dino/Documents/unimportant_json_testing.py",
+		"/Users/dino/Documents/Chart Suggestions.jpg",
+		"/Users/dino/.zshrc",
+		"/usr/local/bin/virtualenvwrapper.sh",
+		"/Users/dino/.bash_profile",
+		"/Users/dino/.bashrc",
+		"/Users/dino/Documents/second_dot_file.dot",
+		"/Users/dino/Documents/first_dot_file.dot",
+		"/Users/dino/Dropbox/Work/OneTab - Browser Sessions/OneTab - URL List - 6.29.2015/chrome-extension:::klbibkeccnjlkjkiokjodocebajanak",
+		"/Users/dino/Library/Application Support/SyncServices/Local/TFSM/com.apple.Contacts/data.syncdb",
+		"/Users/dino/Downloads/My Project-7c63aeb48cac.json",
+		"/Users/dino/Downloads/Home - BIG Session - Newer - 7.012.2015",
+		"/Users/dino/Documents/R Projects/Base/Arima Learning - Model Selection Process - By Hand.r",
+		"/Users/dino/Documents/odto",
+		"/Users/dino/Documents/orderData_textObjects",
+		"/Applications/DataScienceStudio.app/Contents/Resources/kit/frontend/bower_components/Mousetrap/README.md",
+		"/Users/dino/Dropbox/Work/ROT - DB/MySQL Scripts/KEYWORD_SEARCH - 6.23.2015",
+		"/Users/dino/Dropbox/Work/Forecasting/2015/Split Forecasting - Feb.2013 - Jun.2015.ASC",
+		"/Applications/STELLA 10.1 Trial/Getting_Started.pdf",
+		"/Users/dino/Library/Caches/Metadata/Safari/Bookmarks/1D4F43F8-37A2-4EE4-95B0-833D65F67C00.webbookmark",
+		"/Volumes/UUI/CONTAIN/zipcode-to-zone - XLSX.xlsx",
+		"/Volumes/UUI/CONTAIN/md5sum",
+		"/Volumes/UUI/CONTAIN/index.htm",
+		"/Volumes/UUI/CONTAIN/style.css",
+		"/Volumes/UUI/CONTAIN/tables/vista_proba_free/markovI.dat",
+		"/Volumes/UUI/CONTAIN/tables/vista_proba_free/pattern.xml",
+		"/Applications/DataScienceStudio.app/Contents/Resources/kit/scripts/install/virtualenv/README.rst",
+		"/Applications/DataScienceStudio.app/Contents/Resources/kit/R/dataiku/R/dataiku.rdx",
+		"/Applications/DataScienceStudio.app/Contents/Resources/kit/R/dataiku/R/dataiku.rdb",
+		"/Applications/DataScienceStudio.app/Contents/Resources/kit/R/dataiku/R/dataiku",
+		"/Applications/DataScienceStudio.app/Contents/Resources/kit/dist/dataiku-server.jar",
+		"/Applications/DataScienceStudio.app/Contents/Resources/kit/dist/dip-webapp/WEB-INF/classes/log4j.properties",
+		"/Applications/DataScienceStudio.app/Contents/Resources/DataScienceStudio/Images.xcassets/AppIcon.appiconset/Contents.json",
+		"/Applications/DataScienceStudio.app/Contents/Resources/Base.lproj/MainMenu.nib",
+		"/Applications/DataScienceStudio.app/Contents/PkgInfo",
+		"/Applications/DataScienceStudio.app/Contents/Info.plist",
+		"/Users/dino/Library/DataScienceStudio/dss_home/caches/report.json",
+		"/Users/dino/Library/DataScienceStudio/dss_home/user-sessions.json",
+		"/Users/dino/Library/Application Support/Sublime Text 3/Packages/User/Markdown.sublime-settings",
+		"/Users/dino/hp.py",
+		"/Users/dino/Dropbox/Work/Forecasting/REVENUE UP TO MAY-2015",
+		"/Users/dino/Dropbox/Work/Forecasting/2015/Split Forecasting - Feb.2013 - Jun.2015.asc",
+		"/Users/dino/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/dino/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/Users/dino/Dropbox/PYCHARM - PARSER/main.py",
+		"/Users/dino/Dropbox/MONDAY - 6.15.2015 - EVERYTHING/TO DO LIST FOR MONDAY - 6-15-2015.mdown",
+		"/Users/dino/Library/Application Support/Sublime Text 3/Installed Packages/Theme - Brogrammer.sublime-package",
+		"/Users/dino/Library/Application Support/Sublime Text 3/Index/LOG",
+		"/Users/dino/Library/Application Support/Sublime Text 3/Index/CURRENT",
+		"/Users/dino/.npm/constantinople/3.0.1/package 2/README.md",
+		"/Users/dino/Library/Application Support/Sublime Text 3/Packages/MarkdownEditing/Markdown.sublime-settings",
+		"/Users/dino/Library/Application Support/Sublime Text 3/Packages/MarkdownEditing/MultiMarkdown.sublime-settings",
+		"/Users/dino/.ipython/README",
+		"/Users/dino/Dropbox/MONDAY - 6.15.2015 - EVERYTHING/OneTab - URL List - [One of Several] - 6-15-2015.txt",
+		"/Users/dino/Dropbox/MONDAY - 6.15.2015 - EVERYTHING/API Key for SmartSheet API - [I think - it could be for LiveChat also].txt",
+		"/Users/dino/Downloads/Smartsheet-Data-Tracker-master/README.md",
+		"/Users/dino/Documents/artHours.csv",
+		"/Users/dino/Library/Application Support/SyncServices/Local/admin.syncdb",
+		"/Users/dino/Documents/My Tableau Repository/Datasources/9.0/ROT/production_timecard_data.csv",
+		"/Users/dino/Dropbox/Work/Tableau/PRESENTATION - 6.1.2015.twb Files/Data/Datasources/mike - excel - 5.29.2015.tde",
+		"/Users/dino/Desktop/rev_data.txt",
+		"/Users/dino/Dropbox/Work/2015 Budget/2015 - Forecasts/rev-data - Jan.2009 - Mar.2015",
+		"/Users/dino/Desktop/OneTab - ALL TABS FROM 6-1-2015 - PART 3.txt",
+		"/Users/dino/Desktop/OneTab - ALL TABS FROM 6-1-2015 - PART 2.txt",
+		"/Users/dino/Desktop/OneTab - ALL TABS FROM 6-1-2015.txt",
+		"/Users/dino/Documents/letter.frequency.r",
+		"/Users/dino/Dropbox/Auto Color Diagnosis Test Images.zip",
+		"/Users/dino/Dropbox/Work/OneTab - URL List - 5.18.2015/OneTab - URL List - 5.18.2015 - EXTENDED.txt",
+		"/Users/dino/Documents/CSS_TEST.html",
+		"/Users/dino/Documents/cpcounts.py",
+		"/Users/dino/Dropbox/Work/New Pricing/Custom Ink Pricing Data/CI_priceCall - V2.py",
+		"/Users/dino/Dropbox/Work/OneTab - URL List - 5.18.2015/OneTab - URL List - 5.18.2015.txt",
+		"/Users/dino/Dropbox/Work/2015 Budget/2015 - Forecasts/rev-data - Jan.2009 - Apr.2015",
+		"/Users/dino/Dropbox/Work/2015 Budget/2015 - Forecasts/Demand Surge - Managing + Capitalizing - 5.1.2015.txt",
+		"/Users/dino/Documents/REVENUE_MAY_2015",
+		"/Users/dino/Dropbox/Work/Forecasting/2015/May Forecast - 5.2015.asc",
+		"/Users/dino/Documents/emailToSeanRichie.txt",
+		"/Users/dino/Downloads/Wolfram Mathematica 10.0.2/mathpass"
+	],
+	"find":
+	{
+		"height": 23.0
+	},
+	"find_in_files":
+	{
+		"height": 104.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"(\"inkCntList\":)([0-9])",
+			"dopasPerTab\":4",
+			"(\\[)([0-9],[0-9])(\\]),([0-9])",
+			"(\\[)([0-9],[0-9])(\\]),([0-9])+",
+			"(\\[)([0-9],[0-9]),([0-9]),(\\])",
+			"(\\[)([0-9],[0-9]),([0-9])(,)",
+			"(\\[)([0-9],[0-9])(\\])(,)([0-9])(,)",
+			"(\\[)([0-9],[0-9])(\\]),([0-9],)+",
+			"([0-9],[0-9],)",
+			"([0-9],[0-9],)+",
+			"([0-9],[0-9])+",
+			"([0-9],[0-9])",
+			"matched",
+			"([0-9])(\")",
+			"\",",
+			":\"",
+			"ContextManager",
+			"\\t",
+			"\\t ",
+			" [1-9][0-2]*\\:[0-5][0-9]\\:[0-5][0-9] ..",
+			",",
+			" ",
+			"  ",
+			"^(.{1,2})$",
+			"(^0)(.)$",
+			"(^0).\\g{1}",
+			"(Grid:)+",
+			"918500",
+			"(d\\s)(\\d)",
+			"(Grid)",
+			"/(Grid)/",
+			"\\n",
+			"Grid",
+			"/Grid/",
+			"\\n[^\\l]+",
+			",",
+			",,,,,,,,,,,,,",
+			"0",
+			"\\n",
+			"knowledge\n",
+			" 0:00",
+			"Jan-09,",
+			",	",
+			"229079",
+			"Justin",
+			"vertical-tab"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"$1\\[$2\\]",
+			"$1$2,$4$3",
+			"$1$2,$3,\\],",
+			"$1$2,$3,\\]",
+			"$1$2,$5,",
+			"\\[$1\\]",
+			"$1",
+			",",
+			":",
+			": ",
+			"",
+			"\\t",
+			"\\1:{",
+			"\\2",
+			"01",
+			"418200",
+			"d:$2",
+			"$1",
+			"d:$1",
+			"d 5",
+			"z",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "Auto - Manual Classification/Python/Gini/gini_main.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 98,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								97,
+								97
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/Dino/Dropbox/Work/ROT - DB/Login Info.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 139,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								36,
+								22
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 2,
+					"file": "Auto - Manual Classification/Python/Gini/json_load.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 110,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								110,
+								110
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 3,
+					"file": "Auto - Manual Classification/Python/Gini/gini_coef.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1233,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1232,
+								1232
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 4,
+					"file": "Auto - Manual Classification/Python/Gini/json_idx.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1714983,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								764,
+								764
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"word_wrap": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 32.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			],
+			[
+				2,
+				0,
+				3,
+				1
+			],
+			[
+				3,
+				0,
+				4,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.30941924776,
+			0.540858342499,
+			0.786110157517,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 118.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/Python/Python.sublime-build",
+	"project": "COGS_PRJ.sublime-project",
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 174.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 400.0
+	},
+	"selected_group": 2,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 271.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

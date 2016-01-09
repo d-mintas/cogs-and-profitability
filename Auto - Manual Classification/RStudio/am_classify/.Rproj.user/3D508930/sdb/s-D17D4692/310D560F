@@ -1,0 +1,25 @@
+{
+    "contents" : "",
+    "created" : 1449480125099.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "310D560F",
+    "lastKnownWriteTime" : 80,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "0iqm0ig45g",
+        "caption" : "js_1tab.xlite",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=js_1tab.xlite&cache_key=0iqm0ig45g",
+        "displayedObservations" : "9865",
+        "environment" : "",
+        "object" : "js_1tab.xlite",
+        "totalObservations" : "9865",
+        "variables" : "6"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "type" : "r_dataframe"
+}

@@ -1,0 +1,25 @@
+{
+    "contents" : "",
+    "created" : 1450328336146.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "D20885A2",
+    "lastKnownWriteTime" : 0,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "yvwqssc98h",
+        "caption" : "jsx.dt",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=jsx.dt&cache_key=yvwqssc98h",
+        "displayedObservations" : 9865,
+        "environment" : "",
+        "object" : "jsx.dt",
+        "totalObservations" : 9865,
+        "variables" : 8
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "type" : "r_dataframe"
+}
