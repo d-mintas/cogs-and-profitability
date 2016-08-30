@@ -1,0 +1,1002 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"JSON",
+				"JSON-formatted"
+			],
+			[
+				"html",
+				"html	html"
+			],
+			[
+				"name",
+				"__name__"
+			],
+			[
+				"Context",
+				"ContextManager"
+			],
+			[
+				"decimal",
+				"Decimal"
+			],
+			[
+				"nums",
+				"nums_sum_sq"
+			],
+			[
+				"dataset",
+				"dataset2"
+			],
+			[
+				"if",
+				"ifmain	if __name__ == '__main__'"
+			],
+			[
+				"js",
+				"test_json"
+			],
+			[
+				"bash",
+				"bash_profile"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/Users/Dino/Downloads/xgb_main.py",
+			"settings":
+			{
+				"buffer_size": 2544,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "import os\nimport json\n\nimport numpy as np\nimport xgboost as xgb\n\n\nwd = os.getcd()\n\ndim_names = ['qty', 'totImps', 'maxInks', 'totInks', 'locs', 'gini']\n\ndtrain = xgb.DMatrix(wd + '/xgb_clean/dtrain_DMatrix_01_11_2016.data')\ndtest = xgb.DMatrix(wd + '/xgb_clean/dtest_DMatrix_01_11_2016.data')\n\nparams = {'bst:max_depth': 2, 'bst:eta': 1, 'silent': 1, 'objective':\n          'binary:logistic'}\nparams['eval_metric'] = ['auc', 'error']\n\neval_list = [(dtest, 'eval'), (dtrain, 'train')]\n\nnum_rounds = 10\n\nbst = xgb.train(params, dtrain, num_rounds, eval_list)\n\nin_data = np.ndarray([1, 6])\nout_data = np.ndarray([1, 1])\n\n\n# TODO: Import module that handles the conversion from JSON\n# data to numpy arrays. Pipe output here in place of text input.\n# Import gini module and feed its return value here as well.\n\n\nfor col in list(range(6)):\n    print(dim_names[col] + ': ', end='')\n    in_data[0, col] = float(input())\n\nxgmat = xgb.DMatrix(in_data)\n\nypred = bst.predict(xgmat)\n\n\ny_label = round(ypred[0])\ny_prob = ypred[0]\nalc = auto_labor_cost = (in_data[0, 1] / 62.5) * 13.\nmlc = manual_labor_cost = ([0, 1] / 37.5) * 11.\n\n# results = {'press_type': }\n\n\nimps = in_data[0, 1]\nimp_cost = .725 * imps\n\nscreens = in_data[0, 3]\nscr_cost = 2.53 * screens\n\npcs = in_data[0, 0]\nship_cost = .515 * pcs\n\ntot_misc_cost = imp_cost + scr_cost + ship_cost\n\n\nif (y_label):\n    y_class = 'Auto'\n    pred_labor_cost = alc\nelse:\n    y_class = 'Manual'\n    pred_labor_cost = mlc\n\n\nprint('Station Type: {}'.format(y_class))\nprint('Confidence: {}'.format(y_prob))\nprint('Cost if Auto: {}'.format(alc + tot_misc_cost))\nprint('Cost if Manual: {}'.format(mlc + tot_misc_cost))\nprint('Predicted Cost: {}'.format(pred_labor_cost + tot_misc_cost))\n",
+			"file": "/Users/Dino/Desktop/xgb_main.py",
+			"file_size": 1724,
+			"file_write_time": 130997094420000000,
+			"settings":
+			{
+				"buffer_size": 1716,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "gini_main.py",
+			"settings":
+			{
+				"buffer_size": 148,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "SELECT designOrderId AS do_id, InventoryOrder.id AS io_id, inventoryItemId AS ii_id, catalogItemColorType AS `colorType` FROM design_order JOIN InventoryOrder ON InventoryOrder.`designOrderId` = design_order.id JOIN InventoryOrderItem ON InventoryOrderItem.`inventoryOrderId` = InventoryOrder.id JOIN `catalogitems_inventory` ON `catalogitems_inventory`.`inventoryitem_id` = InventoryOrderItem.`inventoryItemId` JOIN catalogitems_catalogitemcolors ON catalogitems_catalogitemcolors.`id` = catalogitems_inventory.`catalogitem_catalogitemcolor_id` JOIN `catalogItemColorTypeInfo` ON catalogItemColorTypeInfo.`catalogItemColorId` = catalogitems_catalogitemcolors.`catalogitemcolor_id` = catalogItemColorTypeInfo.`catalogItemColorId`",
+			"settings":
+			{
+				"buffer_size": 729,
+				"line_ending": "Unix",
+				"name": "SELECT designOrderId AS do_id, InventoryOrder.id A"
+			}
+		},
+		{
+			"file": "json_convert.py",
+			"settings":
+			{
+				"buffer_size": 745,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Python 3.5.1 |Anaconda 2.4.1 (x86_64)| (default, Dec  7 2015, 11:24:55) \n[GCC 4.2.1 (Apple Inc. build 5577)] on darwin\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n>>> Traceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\n  File \"<string>\", line 67, in <module>\n  File \"/Users/Dino/anaconda/lib/python3.5/site-packages/xgboost/core.py\", line 226, in __init__\n    ctypes.byref(self.handle)))\n  File \"/Users/Dino/anaconda/lib/python3.5/site-packages/xgboost/core.py\", line 97, in _check_call\n    raise XGBoostError(_LIB.XGBGetLastError())\nxgboost.core.XGBoostError: b'can not open file \"dtrain_DMatrix.data\"\\n'\n>>> get_wd()\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nNameError: name 'get_wd' is not defined\n>>> wd()\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nNameError: name 'wd' is not defined\n>>> import os\n>>> get_wd\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nNameError: name 'get_wd' is not defined\n>>> get_wd()\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nNameError: name 'get_wd' is not defined\n>>> os.cwd()\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nAttributeError: module 'os' has no attribute 'cwd'\n>>> os.pwd()\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nAttributeError: module 'os' has no attribute 'pwd'\n>>> os.chdir('Users/Dino/Projects/COGS and Profitability/In House/Auto Manual Classification/Python/Final AM Classifer/xgboost')\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nFileNotFoundError: [Errno 2] No such file or directory: 'Users/Dino/Projects/COGS and Profitability/In House/Auto Manual Classification/Python/Final AM Classifer/xgboost'\n>>> os.chdir('/Users/Dino/Projects/COGS and Profitability/In House/Auto Manual Classification/Python/Final AM Classifier')\n>>> Traceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\n  File \"<string>\", line 67, in <module>\n  File \"/Users/Dino/anaconda/lib/python3.5/site-packages/xgboost/core.py\", line 226, in __init__\n    ctypes.byref(self.handle)))\n  File \"/Users/Dino/anaconda/lib/python3.5/site-packages/xgboost/core.py\", line 97, in _check_call\n    raise XGBoostError(_LIB.XGBGetLastError())\nxgboost.core.XGBoostError: b'can not open file \"dtrain_DMatrix.data\"\\n'\n>>> Traceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\n  File \"<string>\", line 67, in <module>\n  File \"/Users/Dino/anaconda/lib/python3.5/site-packages/xgboost/core.py\", line 226, in __init__\n    ctypes.byref(self.handle)))\n  File \"/Users/Dino/anaconda/lib/python3.5/site-packages/xgboost/core.py\", line 97, in _check_call\n    raise XGBoostError(_LIB.XGBGetLastError())\nxgboost.core.XGBoostError: b'can not open file \"dtrain_DMatrix.data\"\\n'\n>>> os.chdir('Users/Dino/Projects/COGS and Profitability/In House/Auto Manual Classification/Python/Final AM Classifer/xgboost')\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nFileNotFoundError: [Errno 2] No such file or directory: 'Users/Dino/Projects/COGS and Profitability/In House/Auto Manual Classification/Python/Final AM Classifer/xgboost'\n>>> os.chdir('Users/Dino/Projects/COGS and Profitability/In House/Auto Manual Classification/Python/Final AM Classifer/xgboost/')\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nFileNotFoundError: [Errno 2] No such file or directory: 'Users/Dino/Projects/COGS and Profitability/In House/Auto Manual Classification/Python/Final AM Classifer/xgboost/'\n>>> os.chdir('/Users/Dino/Projects/COGS and Profitability/In House/Auto Manual Classification/Python/Final AM Classifier/xgboost')\n>>> 4502x6 matrix with 22932 entries is loaded from dtrain_DMatrix.data\n2216x6 matrix with 11284 entries is loaded from dtest_DMatrix.data\n[0]	eval-auc:0.957490	eval-error:0.061823	train-auc:0.957043	train-error:0.053310\n[1]	eval-auc:0.958905	eval-error:0.061823	train-auc:0.960585	train-error:0.053310\n[2]	eval-auc:0.958846	eval-error:0.058213	train-auc:0.963812	train-error:0.049756\n[3]	eval-auc:0.963483	eval-error:0.056859	train-auc:0.967484	train-error:0.049978\n[4]	eval-auc:0.963290	eval-error:0.058213	train-auc:0.968196	train-error:0.051755\n[5]	eval-auc:0.964996	eval-error:0.054152	train-auc:0.970313	train-error:0.047757\n[6]	eval-auc:0.964907	eval-error:0.055957	train-auc:0.970423	train-error:0.049311\n[7]	eval-auc:0.965099	eval-error:0.055505	train-auc:0.970957	train-error:0.046868\n[8]	eval-auc:0.965837	eval-error:0.053700	train-auc:0.971504	train-error:0.047312\n[9]	eval-auc:0.964914	eval-error:0.052798	train-auc:0.971886	train-error:0.045980\nqty: 100\ntotImps: 300\nmaxInks: 2\ntotInks: 3\nlocs: 2\ngini: 1\n1.0 0.934912 62.4 88.0\n>>> 4502x6 matrix with 22932 entries is loaded from dtrain_DMatrix.data\n2216x6 matrix with 11284 entries is loaded from dtest_DMatrix.data\n[0]	eval-auc:0.957490	eval-error:0.061823	train-auc:0.957043	train-error:0.053310\n[1]	eval-auc:0.958905	eval-error:0.061823	train-auc:0.960585	train-error:0.053310\n[2]	eval-auc:0.958846	eval-error:0.058213	train-auc:0.963812	train-error:0.049756\n[3]	eval-auc:0.963483	eval-error:0.056859	train-auc:0.967484	train-error:0.049978\n[4]	eval-auc:0.963290	eval-error:0.058213	train-auc:0.968196	train-error:0.051755\n[5]	eval-auc:0.964996	eval-error:0.054152	train-auc:0.970313	train-error:0.047757\n[6]	eval-auc:0.964907	eval-error:0.055957	train-auc:0.970423	train-error:0.049311\n[7]	eval-auc:0.965099	eval-error:0.055505	train-auc:0.970957	train-error:0.046868\n[8]	eval-auc:0.965837	eval-error:0.053700	train-auc:0.971504	train-error:0.047312\n[9]	eval-auc:0.964914	eval-error:0.052798	train-auc:0.971886	train-error:0.045980\nqty: 500\ntotImps: 500\nmaxInks: 1\ntotInks: 1\nlocs: 1\ngini: 1\n1.0 0.952331 104.0 146.666666667\n>>> in_data[0, 'totImps']\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nIndexError: only integers, slices (`:`), ellipsis (`...`), numpy.newaxis (`None`) and integer or boolean arrays are valid indices\n>>> in_data[0, 1]\n500.0\n>>> in_data[0, 0]\n500.0\n>>> in_data[0, 2]\n1.0\n>>> Traceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\n  File \"<string>\", line 67, in <module>\n  File \"/Users/Dino/anaconda/lib/python3.5/site-packages/xgboost/core.py\", line 226, in __init__\n    ctypes.byref(self.handle)))\n  File \"/Users/Dino/anaconda/lib/python3.5/site-packages/xgboost/core.py\", line 97, in _check_call\n    raise XGBoostError(_LIB.XGBGetLastError())\nxgboost.core.XGBoostError: b'can not open file \"dtrain_DMatrix.data\"\\n'\n>>> os.chdir('/Users/Dino/Desktop/xgb_cogs')\n>>> 4502x6 matrix with 22932 entries is loaded from dtrain_DMatrix.data\n2216x6 matrix with 11284 entries is loaded from dtest_DMatrix.data\n[0]	eval-auc:0.957490	eval-error:0.061823	train-auc:0.957043	train-error:0.053310\n[1]	eval-auc:0.958905	eval-error:0.061823	train-auc:0.960585	train-error:0.053310\n[2]	eval-auc:0.958846	eval-error:0.058213	train-auc:0.963812	train-error:0.049756\n[3]	eval-auc:0.963483	eval-error:0.056859	train-auc:0.967484	train-error:0.049978\n[4]	eval-auc:0.963290	eval-error:0.058213	train-auc:0.968196	train-error:0.051755\n[5]	eval-auc:0.964996	eval-error:0.054152	train-auc:0.970313	train-error:0.047757\n[6]	eval-auc:0.964907	eval-error:0.055957	train-auc:0.970423	train-error:0.049311\n[7]	eval-auc:0.965099	eval-error:0.055505	train-auc:0.970957	train-error:0.046868\n[8]	eval-auc:0.965837	eval-error:0.053700	train-auc:0.971504	train-error:0.047312\n[9]	eval-auc:0.964914	eval-error:0.052798	train-auc:0.971886	train-error:0.045980\nqty: 100\ntotImps: 200\nmaxInks: 1\ntotInks: 2\nlocs: 2\ngini: 1\n1.0 0.934912 41.6 58.6666666667 201.56\n>>> ",
+			"settings":
+			{
+				"buffer_size": 7703,
+				"line_ending": "Unix",
+				"name": "*REPL* [python]",
+				"scratch": true
+			}
+		},
+		{
+			"contents": "Python 3.5.1 |Anaconda 2.4.1 (x86_64)| (default, Dec  7 2015, 11:24:55) \n[GCC 4.2.1 (Apple Inc. build 5577)] on darwin\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n>>> Traceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\n  File \"<string>\", line 9, in <module>\n  File \"/Users/Dino/anaconda/lib/python3.5/site-packages/xgboost/core.py\", line 226, in __init__\n    ctypes.byref(self.handle)))\n  File \"/Users/Dino/anaconda/lib/python3.5/site-packages/xgboost/core.py\", line 97, in _check_call\n    raise XGBoostError(_LIB.XGBGetLastError())\nxgboost.core.XGBoostError: b'can not open file \"dtrain_DMatrix_01_11_2016.data\"\\n'\n>>> Traceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\n  File \"<string>\", line 9, in <module>\n  File \"/Users/Dino/anaconda/lib/python3.5/site-packages/xgboost/core.py\", line 226, in __init__\n    ctypes.byref(self.handle)))\n  File \"/Users/Dino/anaconda/lib/python3.5/site-packages/xgboost/core.py\", line 97, in _check_call\n    raise XGBoostError(_LIB.XGBGetLastError())\nxgboost.core.XGBoostError: b'can not open file \"./dtrain_DMatrix_01_11_2016.data\"\\n'\n>>> import os\n>>> os.get_wd()\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nAttributeError: module 'os' has no attribute 'get_wd'\n>>> os.getwd()\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nAttributeError: module 'os' has no attribute 'getwd'\n>>> os.cwd()\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nAttributeError: module 'os' has no attribute 'cwd'\n>>> os.getcwd()\n'/Users/Dino/Desktop'\n>>> Traceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\n  File \"<string>\", line 12, in <module>\n  File \"/Users/Dino/anaconda/lib/python3.5/site-packages/xgboost/core.py\", line 226, in __init__\n    ctypes.byref(self.handle)))\n  File \"/Users/Dino/anaconda/lib/python3.5/site-packages/xgboost/core.py\", line 97, in _check_call\n    raise XGBoostError(_LIB.XGBGetLastError())\nxgboost.core.XGBoostError: b'can not open file \"/Users/Dino/Desktopdtrain_DMatrix_01_11_2016.data\"\\n'\n>>> 'ab'+'c'\n'abc'\n>>> Traceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\n  File \"<string>\", line 12, in <module>\n  File \"/Users/Dino/anaconda/lib/python3.5/site-packages/xgboost/core.py\", line 226, in __init__\n    ctypes.byref(self.handle)))\n  File \"/Users/Dino/anaconda/lib/python3.5/site-packages/xgboost/core.py\", line 97, in _check_call\n    raise XGBoostError(_LIB.XGBGetLastError())\nxgboost.core.XGBoostError: b'can not open file \"/Users/Dino/Desktop/dtrain_DMatrix_01_11_2016.data\"\\n'\n>>> Traceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\n  File \"<string>\", line 36\n    in_data[0, col] = float(input())\n          ^\nSyntaxError: invalid syntax\n>>> Traceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\n  File \"<string>\", line 36\n    in_data[0, col] = float(input())\n          ^\nSyntaxError: invalid syntax\n>>> 4502x6 matrix with 22932 entries is loaded from /Users/Dino/Desktop/xgb_clean/dtrain_DMatrix_01_11_2016.data\n2216x6 matrix with 11284 entries is loaded from /Users/Dino/Desktop/xgb_clean/dtest_DMatrix_01_11_2016.data\n[0]	eval-auc:0.957490	eval-error:0.061823	train-auc:0.957043	train-error:0.053310\n[1]	eval-auc:0.958905	eval-error:0.061823	train-auc:0.960585	train-error:0.053310\n[2]	eval-auc:0.958846	eval-error:0.058213	train-auc:0.963812	train-error:0.049756\n[3]	eval-auc:0.963483	eval-error:0.056859	train-auc:0.967484	train-error:0.049978\n[4]	eval-auc:0.963290	eval-error:0.058213	train-auc:0.968196	train-error:0.051755\n[5]	eval-auc:0.964996	eval-error:0.054152	train-auc:0.970313	train-error:0.047757\n[6]	eval-auc:0.964907	eval-error:0.055957	train-auc:0.970423	train-error:0.049311\n[7]	eval-auc:0.965099	eval-error:0.055505	train-auc:0.970957	train-error:0.046868\n[8]	eval-auc:0.965837	eval-error:0.053700	train-auc:0.971504	train-error:0.047312\n[9]	eval-auc:0.964914	eval-error:0.052798	train-auc:0.971886	train-error:0.045980\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\n  File \"<string>\", line 27, in <module>\nNameError: name 'f' is not defined\n>>> 4502x6 matrix with 22932 entries is loaded from /Users/Dino/Desktop/xgb_clean/dtrain_DMatrix_01_11_2016.data\n2216x6 matrix with 11284 entries is loaded from /Users/Dino/Desktop/xgb_clean/dtest_DMatrix_01_11_2016.data\n[0]	eval-auc:0.957490	eval-error:0.061823	train-auc:0.957043	train-error:0.053310\n[1]	eval-auc:0.958905	eval-error:0.061823	train-auc:0.960585	train-error:0.053310\n[2]	eval-auc:0.958846	eval-error:0.058213	train-auc:0.963812	train-error:0.049756\n[3]	eval-auc:0.963483	eval-error:0.056859	train-auc:0.967484	train-error:0.049978\n[4]	eval-auc:0.963290	eval-error:0.058213	train-auc:0.968196	train-error:0.051755\n[5]	eval-auc:0.964996	eval-error:0.054152	train-auc:0.970313	train-error:0.047757\n[6]	eval-auc:0.964907	eval-error:0.055957	train-auc:0.970423	train-error:0.049311\n[7]	eval-auc:0.965099	eval-error:0.055505	train-auc:0.970957	train-error:0.046868\n[8]	eval-auc:0.965837	eval-error:0.053700	train-auc:0.971504	train-error:0.047312\n[9]	eval-auc:0.964914	eval-error:0.052798	train-auc:0.971886	train-error:0.045980\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\n  File \"<string>\", line 27, in <module>\nNameError: name 'f' is not defined\n>>> os.getwd\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nAttributeError: module 'os' has no attribute 'getwd'\n>>> os.get_cwd\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nAttributeError: module 'os' has no attribute 'get_cwd'\n>>> os.cwd()\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nAttributeError: module 'os' has no attribute 'cwd'\n>>> os.cwd()",
+			"settings":
+			{
+				"buffer_size": 5792,
+				"line_ending": "Unix",
+				"name": "*REPL* [python]",
+				"scratch": true
+			}
+		},
+		{
+			"file": "newjson.json",
+			"settings":
+			{
+				"buffer_size": 2547674,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Python 3.5.1 |Anaconda 2.4.1 (x86_64)| (default, Dec  7 2015, 11:24:55) \n[GCC 4.2.1 (Apple Inc. build 5577)] on darwin\nType \"help\", \"copyright\", \"credits\" or \"license\" for more information.\n>>> 4502x6 matrix with 22932 entries is loaded from dtrain_DMatrix_01_11_2016.data\n2216x6 matrix with 11284 entries is loaded from dtest_DMatrix_01_11_2016.data\n[0]	eval-auc:0.957490	eval-error:0.061823	train-auc:0.957043	train-error:0.053310\n[1]	eval-auc:0.958905	eval-error:0.061823	train-auc:0.960585	train-error:0.053310\n[2]	eval-auc:0.958846	eval-error:0.058213	train-auc:0.963812	train-error:0.049756\n[3]	eval-auc:0.963483	eval-error:0.056859	train-auc:0.967484	train-error:0.049978\n[4]	eval-auc:0.963290	eval-error:0.058213	train-auc:0.968196	train-error:0.051755\n[5]	eval-auc:0.964996	eval-error:0.054152	train-auc:0.970313	train-error:0.047757\n[6]	eval-auc:0.964907	eval-error:0.055957	train-auc:0.970423	train-error:0.049311\n[7]	eval-auc:0.965099	eval-error:0.055505	train-auc:0.970957	train-error:0.046868\n[8]	eval-auc:0.965837	eval-error:0.053700	train-auc:0.971504	train-error:0.047312\n[9]	eval-auc:0.964914	eval-error:0.052798	train-auc:0.971886	train-error:0.045980\nqty: \n40\ntotImps: \n840\nmaxInks: \n4\ntotInks: \n7\nlocs: \n2\ngini: \n.07143\n\n0.0 0.132366 504.0 560.0\n>>> 4502x6 matrix with 22932 entries is loaded from dtrain_DMatrix_01_11_2016.data\n2216x6 matrix with 11284 entries is loaded from dtest_DMatrix_01_11_2016.data\n[0]	eval-auc:0.957490	eval-error:0.061823	train-auc:0.957043	train-error:0.053310\n[1]	eval-auc:0.958905	eval-error:0.061823	train-auc:0.960585	train-error:0.053310\n[2]	eval-auc:0.958846	eval-error:0.058213	train-auc:0.963812	train-error:0.049756\n[3]	eval-auc:0.963483	eval-error:0.056859	train-auc:0.967484	train-error:0.049978\n[4]	eval-auc:0.963290	eval-error:0.058213	train-auc:0.968196	train-error:0.051755\n[5]	eval-auc:0.964996	eval-error:0.054152	train-auc:0.970313	train-error:0.047757\n[6]	eval-auc:0.964907	eval-error:0.055957	train-auc:0.970423	train-error:0.049311\n[7]	eval-auc:0.965099	eval-error:0.055505	train-auc:0.970957	train-error:0.046868\n[8]	eval-auc:0.965837	eval-error:0.053700	train-auc:0.971504	train-error:0.047312\n[9]	eval-auc:0.964914	eval-error:0.052798	train-auc:0.971886	train-error:0.045980\nqty: \nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\n  File \"<string>\", line 41, in <module>\nValueError: could not convert string to float: \n>>> 4502x6 matrix with 22932 entries is loaded from dtrain_DMatrix_01_11_2016.data\n2216x6 matrix with 11284 entries is loaded from dtest_DMatrix_01_11_2016.data\n[0]	eval-auc:0.957490	eval-error:0.061823	train-auc:0.957043	train-error:0.053310\n[1]	eval-auc:0.958905	eval-error:0.061823	train-auc:0.960585	train-error:0.053310\n[2]	eval-auc:0.958846	eval-error:0.058213	train-auc:0.963812	train-error:0.049756\n[3]	eval-auc:0.963483	eval-error:0.056859	train-auc:0.967484	train-error:0.049978\n[4]	eval-auc:0.963290	eval-error:0.058213	train-auc:0.968196	train-error:0.051755\n[5]	eval-auc:0.964996	eval-error:0.054152	train-auc:0.970313	train-error:0.047757\n[6]	eval-auc:0.964907	eval-error:0.055957	train-auc:0.970423	train-error:0.049311\n[7]	eval-auc:0.965099	eval-error:0.055505	train-auc:0.970957	train-error:0.046868\n[8]	eval-auc:0.965837	eval-error:0.053700	train-auc:0.971504	train-error:0.047312\n[9]	eval-auc:0.964914	eval-error:0.052798	train-auc:0.971886	train-error:0.045980\nqty: \n40\n\n\n\n\ntotImps: \nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\n  File \"<string>\", line 41, in <module>\nValueError: could not convert string to float: \n>>> 4502x6 matrix with 22932 entries is loaded from dtrain_DMatrix_01_11_2016.data\n2216x6 matrix with 11284 entries is loaded from dtest_DMatrix_01_11_2016.data\n[0]	eval-auc:0.957490	eval-error:0.061823	train-auc:0.957043	train-error:0.053310\n[1]	eval-auc:0.958905	eval-error:0.061823	train-auc:0.960585	train-error:0.053310\n[2]	eval-auc:0.958846	eval-error:0.058213	train-auc:0.963812	train-error:0.049756\n[3]	eval-auc:0.963483	eval-error:0.056859	train-auc:0.967484	train-error:0.049978\n[4]	eval-auc:0.963290	eval-error:0.058213	train-auc:0.968196	train-error:0.051755\n[5]	eval-auc:0.964996	eval-error:0.054152	train-auc:0.970313	train-error:0.047757\n[6]	eval-auc:0.964907	eval-error:0.055957	train-auc:0.970423	train-error:0.049311\n[7]	eval-auc:0.965099	eval-error:0.055505	train-auc:0.970957	train-error:0.046868\n[8]	eval-auc:0.965837	eval-error:0.053700	train-auc:0.971504	train-error:0.047312\n[9]	eval-auc:0.964914	eval-error:0.052798	train-auc:0.971886	train-error:0.045980\nqty: \nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\n  File \"<string>\", line 41, in <module>\nValueError: could not convert string to float: \n>>> 4502x6 matrix with 22932 entries is loaded from dtrain_DMatrix_01_11_2016.data\n2216x6 matrix with 11284 entries is loaded from dtest_DMatrix_01_11_2016.data\n[0]	eval-auc:0.957490	eval-error:0.061823	train-auc:0.957043	train-error:0.053310\n[1]	eval-auc:0.958905	eval-error:0.061823	train-auc:0.960585	train-error:0.053310\n[2]	eval-auc:0.958846	eval-error:0.058213	train-auc:0.963812	train-error:0.049756\n[3]	eval-auc:0.963483	eval-error:0.056859	train-auc:0.967484	train-error:0.049978\n[4]	eval-auc:0.963290	eval-error:0.058213	train-auc:0.968196	train-error:0.051755\n[5]	eval-auc:0.964996	eval-error:0.054152	train-auc:0.970313	train-error:0.047757\n[6]	eval-auc:0.964907	eval-error:0.055957	train-auc:0.970423	train-error:0.049311\n[7]	eval-auc:0.965099	eval-error:0.055505	train-auc:0.970957	train-error:0.046868\n[8]	eval-auc:0.965837	eval-error:0.053700	train-auc:0.971504	train-error:0.047312\n[9]	eval-auc:0.964914	eval-error:0.052798	train-auc:0.971886	train-error:0.045980\nqty: \nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\n  File \"<string>\", line 41, in <module>\nValueError: could not convert string to float: \n>>> 4502x6 matrix with 22932 entries is loaded from dtrain_DMatrix_01_11_2016.data\n2216x6 matrix with 11284 entries is loaded from dtest_DMatrix_01_11_2016.data\n[0]	eval-auc:0.957490	eval-error:0.061823	train-auc:0.957043	train-error:0.053310\n[1]	eval-auc:0.958905	eval-error:0.061823	train-auc:0.960585	train-error:0.053310\n[2]	eval-auc:0.958846	eval-error:0.058213	train-auc:0.963812	train-error:0.049756\n[3]	eval-auc:0.963483	eval-error:0.056859	train-auc:0.967484	train-error:0.049978\n[4]	eval-auc:0.963290	eval-error:0.058213	train-auc:0.968196	train-error:0.051755\n[5]	eval-auc:0.964996	eval-error:0.054152	train-auc:0.970313	train-error:0.047757\n[6]	eval-auc:0.964907	eval-error:0.055957	train-auc:0.970423	train-error:0.049311\n[7]	eval-auc:0.965099	eval-error:0.055505	train-auc:0.970957	train-error:0.046868\n[8]	eval-auc:0.965837	eval-error:0.053700	train-auc:0.971504	train-error:0.047312\n[9]	eval-auc:0.964914	eval-error:0.052798	train-auc:0.971886	train-error:0.045980\nqty: \nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\n  File \"<string>\", line 41, in <module>\nValueError: could not convert string to float: \n>>> 4502x6 matrix with 22932 entries is loaded from dtrain_DMatrix_01_11_2016.data\n2216x6 matrix with 11284 entries is loaded from dtest_DMatrix_01_11_2016.data\n[0]	eval-auc:0.957490	eval-error:0.061823	train-auc:0.957043	train-error:0.053310\n[1]	eval-auc:0.958905	eval-error:0.061823	train-auc:0.960585	train-error:0.053310\n[2]	eval-auc:0.958846	eval-error:0.058213	train-auc:0.963812	train-error:0.049756\n[3]	eval-auc:0.963483	eval-error:0.056859	train-auc:0.967484	train-error:0.049978\n[4]	eval-auc:0.963290	eval-error:0.058213	train-auc:0.968196	train-error:0.051755\n[5]	eval-auc:0.964996	eval-error:0.054152	train-auc:0.970313	train-error:0.047757\n[6]	eval-auc:0.964907	eval-error:0.055957	train-auc:0.970423	train-error:0.049311\n[7]	eval-auc:0.965099	eval-error:0.055505	train-auc:0.970957	train-error:0.046868\n[8]	eval-auc:0.965837	eval-error:0.053700	train-auc:0.971504	train-error:0.047312\n[9]	eval-auc:0.964914	eval-error:0.052798	train-auc:0.971886	train-error:0.045980\nqty: \n40\ntotImps: \n560\n\nmaxInks: \nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\n  File \"<string>\", line 41, in <module>\nValueError: could not convert string to float: \n>>> 4502x6 matrix with 22932 entries is loaded from dtrain_DMatrix_01_11_2016.data\n2216x6 matrix with 11284 entries is loaded from dtest_DMatrix_01_11_2016.data\n[0]	eval-auc:0.957490	eval-error:0.061823	train-auc:0.957043	train-error:0.053310\n[1]	eval-auc:0.958905	eval-error:0.061823	train-auc:0.960585	train-error:0.053310\n[2]	eval-auc:0.958846	eval-error:0.058213	train-auc:0.963812	train-error:0.049756\n[3]	eval-auc:0.963483	eval-error:0.056859	train-auc:0.967484	train-error:0.049978\n[4]	eval-auc:0.963290	eval-error:0.058213	train-auc:0.968196	train-error:0.051755\n[5]	eval-auc:0.964996	eval-error:0.054152	train-auc:0.970313	train-error:0.047757\n[6]	eval-auc:0.964907	eval-error:0.055957	train-auc:0.970423	train-error:0.049311\n[7]	eval-auc:0.965099	eval-error:0.055505	train-auc:0.970957	train-error:0.046868\n[8]	eval-auc:0.965837	eval-error:0.053700	train-auc:0.971504	train-error:0.047312\n[9]	eval-auc:0.964914	eval-error:0.052798	train-auc:0.971886	train-error:0.045980\nqty: \n40\ntotImps: \n560\nmaxInks: \n4\ntotInks: \n7\nlocs: \n2\ngini: \n.07143\n0.0 0.132366 134.4 149.333333333\n>>> 4502x6 matrix with 22932 entries is loaded from dtrain_DMatrix_01_11_2016.data\n2216x6 matrix with 11284 entries is loaded from dtest_DMatrix_01_11_2016.data\n[0]	eval-auc:0.957490	eval-error:0.061823	train-auc:0.957043	train-error:0.053310\n[1]	eval-auc:0.958905	eval-error:0.061823	train-auc:0.960585	train-error:0.053310\n[2]	eval-auc:0.958846	eval-error:0.058213	train-auc:0.963812	train-error:0.049756\n[3]	eval-auc:0.963483	eval-error:0.056859	train-auc:0.967484	train-error:0.049978\n[4]	eval-auc:0.963290	eval-error:0.058213	train-auc:0.968196	train-error:0.051755\n[5]	eval-auc:0.964996	eval-error:0.054152	train-auc:0.970313	train-error:0.047757\n[6]	eval-auc:0.964907	eval-error:0.055957	train-auc:0.970423	train-error:0.049311\n[7]	eval-auc:0.965099	eval-error:0.055505	train-auc:0.970957	train-error:0.046868\n[8]	eval-auc:0.965837	eval-error:0.053700	train-auc:0.971504	train-error:0.047312\n[9]	eval-auc:0.964914	eval-error:0.052798	train-auc:0.971886	train-error:0.045980\nqty: 40\ntotImps: 240\nmaxInks: 2\ntotInks: 3\nlocs: 2\ngini: .1\n0.0 0.132366 57.6 64.0\n>>> ord('Apple')\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nTypeError: ord() expected a character, but string of length 5 found\n>>> ord('A')\n65\n>>> help(ord)\nHelp on built-in function ord in module builtins:\n\nord(c, /)\n    Return the Unicode code point for a one-character string.\n\n>>> u'A'\n'A'\n>>> ord(u'A')\n65\n>>> ord(u`'A')\n  File \"<stdin>\", line 1\n    ord(u`'A')\n         ^\nSyntaxError: invalid syntax\n>>> ord(u''A')\n  File \"<stdin>\", line 1\n    ord(u''A')\n           ^\nSyntaxError: invalid syntax\n>>> ord(u'A')\n65\n>>> 4502x6 matrix with 22932 entries is loaded from dtrain_DMatrix_01_11_2016.data\n2216x6 matrix with 11284 entries is loaded from dtest_DMatrix_01_11_2016.data\n[0]	eval-auc:0.957490	eval-error:0.061823	train-auc:0.957043	train-error:0.053310\n[1]	eval-auc:0.958905	eval-error:0.061823	train-auc:0.960585	train-error:0.053310\n[2]	eval-auc:0.958846	eval-error:0.058213	train-auc:0.963812	train-error:0.049756\n[3]	eval-auc:0.963483	eval-error:0.056859	train-auc:0.967484	train-error:0.049978\n[4]	eval-auc:0.963290	eval-error:0.058213	train-auc:0.968196	train-error:0.051755\n[5]	eval-auc:0.964996	eval-error:0.054152	train-auc:0.970313	train-error:0.047757\n[6]	eval-auc:0.964907	eval-error:0.055957	train-auc:0.970423	train-error:0.049311\n[7]	eval-auc:0.965099	eval-error:0.055505	train-auc:0.970957	train-error:0.046868\n[8]	eval-auc:0.965837	eval-error:0.053700	train-auc:0.971504	train-error:0.047312\n[9]	eval-auc:0.964914	eval-error:0.052798	train-auc:0.971886	train-error:0.045980\nqty: 500\ntotImps: 1000\nmaxInks: 1\ntotInks: 1\nlocs: 1\ngini: 0\n1.0 0.917782 208.0 293.333333333\n>>> 4502x6 matrix with 22932 entries is loaded from dtrain_DMatrix_01_11_2016.data\n2216x6 matrix with 11284 entries is loaded from dtest_DMatrix_01_11_2016.data\n[0]	eval-auc:0.957490	eval-error:0.061823	train-auc:0.957043	train-error:0.053310\n[1]	eval-auc:0.958905	eval-error:0.061823	train-auc:0.960585	train-error:0.053310\n[2]	eval-auc:0.958846	eval-error:0.058213	train-auc:0.963812	train-error:0.049756\n[3]	eval-auc:0.963483	eval-error:0.056859	train-auc:0.967484	train-error:0.049978\n[4]	eval-auc:0.963290	eval-error:0.058213	train-auc:0.968196	train-error:0.051755\n[5]	eval-auc:0.964996	eval-error:0.054152	train-auc:0.970313	train-error:0.047757\n[6]	eval-auc:0.964907	eval-error:0.055957	train-auc:0.970423	train-error:0.049311\n[7]	eval-auc:0.965099	eval-error:0.055505	train-auc:0.970957	train-error:0.046868\n[8]	eval-auc:0.965837	eval-error:0.053700	train-auc:0.971504	train-error:0.047312\n[9]	eval-auc:0.964914	eval-error:0.052798	train-auc:0.971886	train-error:0.045980\nqty: 500\n\ntotImps: Traceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\n  File \"<string>\", line 41, in <module>\nValueError: could not convert string to float: \n>>> 4502x6 matrix with 22932 entries is loaded from dtrain_DMatrix_01_11_2016.data\n2216x6 matrix with 11284 entries is loaded from dtest_DMatrix_01_11_2016.data\n[0]	eval-auc:0.957490	eval-error:0.061823	train-auc:0.957043	train-error:0.053310\n[1]	eval-auc:0.958905	eval-error:0.061823	train-auc:0.960585	train-error:0.053310\n[2]	eval-auc:0.958846	eval-error:0.058213	train-auc:0.963812	train-error:0.049756\n[3]	eval-auc:0.963483	eval-error:0.056859	train-auc:0.967484	train-error:0.049978\n[4]	eval-auc:0.963290	eval-error:0.058213	train-auc:0.968196	train-error:0.051755\n[5]	eval-auc:0.964996	eval-error:0.054152	train-auc:0.970313	train-error:0.047757\n[6]	eval-auc:0.964907	eval-error:0.055957	train-auc:0.970423	train-error:0.049311\n[7]	eval-auc:0.965099	eval-error:0.055505	train-auc:0.970957	train-error:0.046868\n[8]	eval-auc:0.965837	eval-error:0.053700	train-auc:0.971504	train-error:0.047312\n[9]	eval-auc:0.964914	eval-error:0.052798	train-auc:0.971886	train-error:0.045980\nqty: 500\ntotImps: 1000\nmaxInks: 1\ntotInks: 1\nlocs: 1\ngini: 0\n1.0 0.917782 208.0 293.333333333\n>>> 4502x6 matrix with 22932 entries is loaded from dtrain_DMatrix.data\n2216x6 matrix with 11284 entries is loaded from dtest_DMatrix.data\n[0]	eval-auc:0.957490	eval-error:0.061823	train-auc:0.957043	train-error:0.053310\n[1]	eval-auc:0.958905	eval-error:0.061823	train-auc:0.960585	train-error:0.053310\n[2]	eval-auc:0.958846	eval-error:0.058213	train-auc:0.963812	train-error:0.049756\n[3]	eval-auc:0.963483	eval-error:0.056859	train-auc:0.967484	train-error:0.049978\n[4]	eval-auc:0.963290	eval-error:0.058213	train-auc:0.968196	train-error:0.051755\n[5]	eval-auc:0.964996	eval-error:0.054152	train-auc:0.970313	train-error:0.047757\n[6]	eval-auc:0.964907	eval-error:0.055957	train-auc:0.970423	train-error:0.049311\n[7]	eval-auc:0.965099	eval-error:0.055505	train-auc:0.970957	train-error:0.046868\n[8]	eval-auc:0.965837	eval-error:0.053700	train-auc:0.971504	train-error:0.047312\n[9]	eval-auc:0.964914	eval-error:0.052798	train-auc:0.971886	train-error:0.045980\nqty: 10\ntotImps: 10\nmaxInks: 1\ntotInks: 1\nlocs: 1\ngini: 0\n0.0 0.00155454 2.08 2.93333333333\n>>> 4502x6 matrix with 22932 entries is loaded from dtrain_DMatrix.data\n2216x6 matrix with 11284 entries is loaded from dtest_DMatrix.data\n[0]	eval-auc:0.957490	eval-error:0.061823	train-auc:0.957043	train-error:0.053310\n[1]	eval-auc:0.958905	eval-error:0.061823	train-auc:0.960585	train-error:0.053310\n[2]	eval-auc:0.958846	eval-error:0.058213	train-auc:0.963812	train-error:0.049756\n[3]	eval-auc:0.963483	eval-error:0.056859	train-auc:0.967484	train-error:0.049978\n[4]	eval-auc:0.963290	eval-error:0.058213	train-auc:0.968196	train-error:0.051755\n[5]	eval-auc:0.964996	eval-error:0.054152	train-auc:0.970313	train-error:0.047757\n[6]	eval-auc:0.964907	eval-error:0.055957	train-auc:0.970423	train-error:0.049311\n[7]	eval-auc:0.965099	eval-error:0.055505	train-auc:0.970957	train-error:0.046868\n[8]	eval-auc:0.965837	eval-error:0.053700	train-auc:0.971504	train-error:0.047312\n[9]	eval-auc:0.964914	eval-error:0.052798	train-auc:0.971886	train-error:0.045980\nqty: 25\ntotImps: 175\nmaxInks: 4\ntotInks: 7\nlocs: 2\ngini: .07143\n0.0 0.00481873 36.4 51.3333333333\n>>> 4502x6 matrix with 22932 entries is loaded from dtrain_DMatrix.data\n2216x6 matrix with 11284 entries is loaded from dtest_DMatrix.data\n[0]	eval-auc:0.957490	eval-error:0.061823	train-auc:0.957043	train-error:0.053310\n[1]	eval-auc:0.958905	eval-error:0.061823	train-auc:0.960585	train-error:0.053310\n[2]	eval-auc:0.958846	eval-error:0.058213	train-auc:0.963812	train-error:0.049756\n[3]	eval-auc:0.963483	eval-error:0.056859	train-auc:0.967484	train-error:0.049978\n[4]	eval-auc:0.963290	eval-error:0.058213	train-auc:0.968196	train-error:0.051755\n[5]	eval-auc:0.964996	eval-error:0.054152	train-auc:0.970313	train-error:0.047757\n[6]	eval-auc:0.964907	eval-error:0.055957	train-auc:0.970423	train-error:0.049311\n[7]	eval-auc:0.965099	eval-error:0.055505	train-auc:0.970957	train-error:0.046868\n[8]	eval-auc:0.965837	eval-error:0.053700	train-auc:0.971504	train-error:0.047312\n[9]	eval-auc:0.964914	eval-error:0.052798	train-auc:0.971886	train-error:0.045980\nqty: 25\ntotImps: 275\nmaxInks: 4\ntotInks: 3\nlocs: 2\ngini: .07143\n0.0 0.0036379 57.2 80.6666666667\n>>> 4502x6 matrix with 22932 entries is loaded from dtrain_DMatrix.data\n2216x6 matrix with 11284 entries is loaded from dtest_DMatrix.data\n[0]	eval-auc:0.957490	eval-error:0.061823	train-auc:0.957043	train-error:0.053310\n[1]	eval-auc:0.958905	eval-error:0.061823	train-auc:0.960585	train-error:0.053310\n[2]	eval-auc:0.958846	eval-error:0.058213	train-auc:0.963812	train-error:0.049756\n[3]	eval-auc:0.963483	eval-error:0.056859	train-auc:0.967484	train-error:0.049978\n[4]	eval-auc:0.963290	eval-error:0.058213	train-auc:0.968196	train-error:0.051755\n[5]	eval-auc:0.964996	eval-error:0.054152	train-auc:0.970313	train-error:0.047757\n[6]	eval-auc:0.964907	eval-error:0.055957	train-auc:0.970423	train-error:0.049311\n[7]	eval-auc:0.965099	eval-error:0.055505	train-auc:0.970957	train-error:0.046868\n[8]	eval-auc:0.965837	eval-error:0.053700	train-auc:0.971504	train-error:0.047312\n[9]	eval-auc:0.964914	eval-error:0.052798	train-auc:0.971886	train-error:0.045980\nqty: 25\ntotImps: 350\nmaxInks: 4\ntotInks: 3\nlocs: 2\ngini: .07143\n0.0 0.0036379 72.8 102.666666667\n>>> 4502x6 matrix with 22932 entries is loaded from dtrain_DMatrix.data\n2216x6 matrix with 11284 entries is loaded from dtest_DMatrix.data\n[0]	eval-auc:0.957490	eval-error:0.061823	train-auc:0.957043	train-error:0.053310\n[1]	eval-auc:0.958905	eval-error:0.061823	train-auc:0.960585	train-error:0.053310\n[2]	eval-auc:0.958846	eval-error:0.058213	train-auc:0.963812	train-error:0.049756\n[3]	eval-auc:0.963483	eval-error:0.056859	train-auc:0.967484	train-error:0.049978\n[4]	eval-auc:0.963290	eval-error:0.058213	train-auc:0.968196	train-error:0.051755\n[5]	eval-auc:0.964996	eval-error:0.054152	train-auc:0.970313	train-error:0.047757\n[6]	eval-auc:0.964907	eval-error:0.055957	train-auc:0.970423	train-error:0.049311\n[7]	eval-auc:0.965099	eval-error:0.055505	train-auc:0.970957	train-error:0.046868\n[8]	eval-auc:0.965837	eval-error:0.053700	train-auc:0.971504	train-error:0.047312\n[9]	eval-auc:0.964914	eval-error:0.052798	train-auc:0.971886	train-error:0.045980\nqty: 100\ntotImps: 200\nmaxInks: 1\ntotInks: 1\nlocs: 1\ngini: 0\n1.0 0.875048 41.6 58.6666666667\n>>> usage: [-h] json_file\n: error: the following arguments are required: json_file\n\n***Repl Closed***\n",
+			"settings":
+			{
+				"buffer_size": 19581,
+				"line_ending": "Unix",
+				"name": "*REPL* [python]",
+				"read_only": true,
+				"scratch": true
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				"Syntax Check"
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"json",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"jso",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"auto",
+				"User: Python PEP8 Autoformat"
+			],
+			[
+				"side",
+				"Preferences: AutoPep8 Settings – Default"
+			],
+			[
+				"pylint",
+				"User: Python Flake8 Lint"
+			],
+			[
+				"pyfla",
+				"User: Python Flake8 Lint"
+			],
+			[
+				"pyflake",
+				"User: Python Flake8 Lint"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"repl",
+				"SublimeREPL: Python - RUN current file"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"i",
+				"Package Control: Install Package"
+			],
+			[
+				"insta	",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Discover Packages"
+			],
+			[
+				"build",
+				"Build: New Build System"
+			],
+			[
+				"table ",
+				"Table Editor: Enable for current view"
+			],
+			[
+				"packag",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"package mana",
+				"Package Control: List Unmanaged Packages"
+			],
+			[
+				"packa",
+				"Preferences: Browse Packages"
+			],
+			[
+				"markdown",
+				"Set Syntax: MultiMarkdown"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 146.0,
+		"history":
+		[
+			"res",
+			"3+4",
+			"python",
+			"python -m \"wgeom.py\"",
+			"python -m wgeom.py",
+			"3+4",
+			"print(\"hello\")",
+			"res",
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/Dino/Documents/xgboost_files",
+		"/Users/Dino/Documents/xgboost_files/__pycache__",
+		"/Users/Dino/Projects/COGS and Profitability/MainPE"
+	],
+	"file_history":
+	[
+		"/Users/Dino/Desktop/xgb_cogs/xgb_main.py",
+		"/Users/Dino/Library/Application Support/Sublime Text 3/Packages/Python PEP8 Autoformat/Default (OSX).sublime-keymap",
+		"/Users/Dino/Dropbox/Work/Work Credentials/Work Credentials.txt",
+		"/Users/Dino/Projects/COGS and Profitability/MainPE/cogs_data_w_gini.json",
+		"/Users/Dino/Library/Application Support/Sublime Text 3/Packages/AutoPep8/Default.sublime-keymap",
+		"/Users/Dino/Library/Application Support/Sublime Text 3/Packages/User/AutoPep8.sublime-settings",
+		"/Users/Dino/Library/Application Support/Sublime Text 3/Packages/AutoPep8/AutoPep8.sublime-settings",
+		"/Users/Dino/Projects/COGS and Profitability/MainPE/main_pe.py",
+		"/Users/Dino/Documents/xgboost_files/main_bak.py",
+		"/Users/Dino/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/Dino/Dropbox/Work/Projects/.gitignore_global",
+		"/Users/Dino/Dropbox/Work/ROT - DB/Login Info.txt",
+		"/Users/Dino/anaconda/pkgs/scikit-image-0.11.3-np110py35_0/lib/python3.5/site-packages/skimage/data/__init__.py",
+		"/Users/Dino/Dropbox/Work/Projects/COGS Estimation/Auto - Manual Classification/Python/Gini/json_load.py",
+		"/Users/Dino/Documents/query_result.csv",
+		"/Users/Dino/Dropbox/Work/Projects/COGS Estimation/Auto - Manual Classification/Python/Gini/COGS_train_fixed.json",
+		"/Users/dino/Dropbox/Work/Projects/COGS Estimation/Auto - Manual Classification/Python/Gini/COGS_train_fixed2.json",
+		"/Users/dino/Documents/jobScoreSQLquery.sql",
+		"/Users/dino/Dropbox/Work/Projects/COGS Estimation/Auto - Manual Classification/Python/SQL/get_cogs_train_data.sql",
+		"/Users/dino/Documents/ss.html",
+		"/Users/dino/Downloads/phog 2/anna_binMatrix.m",
+		"/Users/dino/Dropbox/Work/ROT - DB/MySQL Scripts/select jobScoreInt2.*, uniquePartyStationOrders.st.sql",
+		"/Users/dino/Documents/HOME_11_28_2015__ONETAB_LIST.txt",
+		"/Users/dino/Dropbox/Work/ROT - DB/Login Info.txt",
+		"/Users/dino/Library/Application Support/Sublime Text 3/Packages/User/SublimeServer.sublime-settings",
+		"/Users/dino/Documents/wgeom.py",
+		"/Users/dino/Library/Application Support/Sublime Text 3/Packages/Python PEP8 Autoformat/Default (OSX).sublime-keymap",
+		"/Users/dino/Library/Application Support/Sublime Text 3/Packages/User/pep8_autoformat.sublime-settings",
+		"/Users/dino/Library/Application Support/Sublime Text 3/Packages/Python PEP8 Autoformat/pep8_autoformat.sublime-settings",
+		"/Users/dino/Dropbox/jobs_am_clust.json",
+		"/Users/dino/Documents/multidayOrders",
+		"/Users/dino/Documents/cpdata.txt",
+		"/Users/dino/Documents/inflation_idx.csv",
+		"/Users/dino/Documents/inflation_idx_Jan2009_Aug2015.js",
+		"/Users/dino/Documents/ONETAB_LIST-746_TABS-11_04_2015.txt",
+		"/Users/dino/Downloads/pdash_work/assets/javascripts/application.coffee",
+		"/Users/dino/Downloads/pdash_work/widgets/autolist/autolist.html",
+		"/Users/dino/Downloads/pdash_work/widgets/alert/alert.html",
+		"/Users/dino/Downloads/pdash_work/widgets/alert/alert.coffee",
+		"/Users/dino/Downloads/pdash_work/widgets/list/list.scss",
+		"/Users/dino/Downloads/pdash_work/widgets/alert/alert.scss",
+		"/Users/dino/Downloads/pdash_work/Gemfile",
+		"/Users/dino/Downloads/pdash_work/Gemfile.lock",
+		"/Users/dino/data123.csv",
+		"/Users/dino/flaskapp/test_app/routes.py",
+		"/Users/dino/flaskapp/test_app/README.md",
+		"/Users/dino/dollarIDX_2009-2015.csv",
+		"/Users/dino/ALL_REV_DATA_2009-2015.csv",
+		"/Users/dino/Dropbox/Work/Forecasting/REVENUE UP TO JULY-2015.txt",
+		"/Users/dino/pdash/widgets/alert/alert.html",
+		"/Users/dino/pdash/dashboards/sample.erb",
+		"/Users/dino/pdash/assets/javascripts/application.coffee",
+		"/Users/dino/pdash/dashboards/prod_dash.erb",
+		"/Users/dino/pdash/widgets/alert/alert.scss",
+		"/Users/dino/pdash/config.ru",
+		"/Users/dino/pdash/widgets/clock/clock.scss",
+		"/Users/dino/Documents/REVENUE_THROUGH_JUNE_2015",
+		"/Users/dino/Documents/p096_sudoku.txt",
+		"/Users/dino/Desktop/index.html",
+		"/Users/dino/Desktop/BOWM.json",
+		"/Users/dino/Desktop/BOW.json",
+		"/Users/dino/Projects/iPython Notebooks/BOW_json_utf8.json",
+		"/Users/dino/Documents/unimportant_json_testing.py",
+		"/Users/dino/Documents/Chart Suggestions.jpg",
+		"/Users/dino/.zshrc",
+		"/usr/local/bin/virtualenvwrapper.sh",
+		"/Users/dino/.bash_profile",
+		"/Users/dino/.bashrc",
+		"/Users/dino/Documents/second_dot_file.dot",
+		"/Users/dino/Documents/first_dot_file.dot",
+		"/Users/dino/Dropbox/Work/OneTab - Browser Sessions/OneTab - URL List - 6.29.2015/chrome-extension:::klbibkeccnjlkjkiokjodocebajanak",
+		"/Users/dino/Library/Application Support/SyncServices/Local/TFSM/com.apple.Contacts/data.syncdb",
+		"/Users/dino/Downloads/My Project-7c63aeb48cac.json",
+		"/Users/dino/Downloads/Home - BIG Session - Newer - 7.012.2015",
+		"/Users/dino/Documents/R Projects/Base/Arima Learning - Model Selection Process - By Hand.r",
+		"/Users/dino/Documents/odto",
+		"/Users/dino/Documents/orderData_textObjects",
+		"/Applications/DataScienceStudio.app/Contents/Resources/kit/frontend/bower_components/Mousetrap/README.md",
+		"/Users/dino/Dropbox/Work/ROT - DB/MySQL Scripts/KEYWORD_SEARCH - 6.23.2015",
+		"/Users/dino/Dropbox/Work/Forecasting/2015/Split Forecasting - Feb.2013 - Jun.2015.ASC",
+		"/Applications/STELLA 10.1 Trial/Getting_Started.pdf",
+		"/Users/dino/Library/Caches/Metadata/Safari/Bookmarks/1D4F43F8-37A2-4EE4-95B0-833D65F67C00.webbookmark",
+		"/Volumes/UUI/CONTAIN/zipcode-to-zone - XLSX.xlsx",
+		"/Volumes/UUI/CONTAIN/md5sum",
+		"/Volumes/UUI/CONTAIN/index.htm",
+		"/Volumes/UUI/CONTAIN/style.css",
+		"/Volumes/UUI/CONTAIN/tables/vista_proba_free/markovI.dat",
+		"/Volumes/UUI/CONTAIN/tables/vista_proba_free/pattern.xml",
+		"/Applications/DataScienceStudio.app/Contents/Resources/kit/scripts/install/virtualenv/README.rst",
+		"/Applications/DataScienceStudio.app/Contents/Resources/kit/R/dataiku/R/dataiku.rdx",
+		"/Applications/DataScienceStudio.app/Contents/Resources/kit/R/dataiku/R/dataiku.rdb",
+		"/Applications/DataScienceStudio.app/Contents/Resources/kit/R/dataiku/R/dataiku",
+		"/Applications/DataScienceStudio.app/Contents/Resources/kit/dist/dataiku-server.jar",
+		"/Applications/DataScienceStudio.app/Contents/Resources/kit/dist/dip-webapp/WEB-INF/classes/log4j.properties",
+		"/Applications/DataScienceStudio.app/Contents/Resources/DataScienceStudio/Images.xcassets/AppIcon.appiconset/Contents.json",
+		"/Applications/DataScienceStudio.app/Contents/Resources/Base.lproj/MainMenu.nib",
+		"/Applications/DataScienceStudio.app/Contents/PkgInfo",
+		"/Applications/DataScienceStudio.app/Contents/Info.plist",
+		"/Users/dino/Library/DataScienceStudio/dss_home/caches/report.json",
+		"/Users/dino/Library/DataScienceStudio/dss_home/user-sessions.json",
+		"/Users/dino/Library/Application Support/Sublime Text 3/Packages/User/Markdown.sublime-settings",
+		"/Users/dino/hp.py",
+		"/Users/dino/Dropbox/Work/Forecasting/REVENUE UP TO MAY-2015",
+		"/Users/dino/Dropbox/Work/Forecasting/2015/Split Forecasting - Feb.2013 - Jun.2015.asc",
+		"/Users/dino/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/dino/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/Users/dino/Dropbox/PYCHARM - PARSER/main.py",
+		"/Users/dino/Dropbox/MONDAY - 6.15.2015 - EVERYTHING/TO DO LIST FOR MONDAY - 6-15-2015.mdown",
+		"/Users/dino/Library/Application Support/Sublime Text 3/Installed Packages/Theme - Brogrammer.sublime-package",
+		"/Users/dino/Library/Application Support/Sublime Text 3/Index/LOG",
+		"/Users/dino/Library/Application Support/Sublime Text 3/Index/CURRENT",
+		"/Users/dino/.npm/constantinople/3.0.1/package 2/README.md",
+		"/Users/dino/Library/Application Support/Sublime Text 3/Packages/MarkdownEditing/Markdown.sublime-settings",
+		"/Users/dino/Library/Application Support/Sublime Text 3/Packages/MarkdownEditing/MultiMarkdown.sublime-settings",
+		"/Users/dino/.ipython/README",
+		"/Users/dino/Dropbox/MONDAY - 6.15.2015 - EVERYTHING/OneTab - URL List - [One of Several] - 6-15-2015.txt",
+		"/Users/dino/Dropbox/MONDAY - 6.15.2015 - EVERYTHING/API Key for SmartSheet API - [I think - it could be for LiveChat also].txt",
+		"/Users/dino/Downloads/Smartsheet-Data-Tracker-master/README.md",
+		"/Users/dino/Documents/artHours.csv",
+		"/Users/dino/Library/Application Support/SyncServices/Local/admin.syncdb",
+		"/Users/dino/Documents/My Tableau Repository/Datasources/9.0/ROT/production_timecard_data.csv",
+		"/Users/dino/Dropbox/Work/Tableau/PRESENTATION - 6.1.2015.twb Files/Data/Datasources/mike - excel - 5.29.2015.tde",
+		"/Users/dino/Desktop/rev_data.txt",
+		"/Users/dino/Dropbox/Work/2015 Budget/2015 - Forecasts/rev-data - Jan.2009 - Mar.2015",
+		"/Users/dino/Desktop/OneTab - ALL TABS FROM 6-1-2015 - PART 3.txt",
+		"/Users/dino/Desktop/OneTab - ALL TABS FROM 6-1-2015 - PART 2.txt",
+		"/Users/dino/Desktop/OneTab - ALL TABS FROM 6-1-2015.txt",
+		"/Users/dino/Documents/letter.frequency.r"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 104.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"in_data0",
+			"in_data",
+			"xgboo",
+			"(\"inkCntList\":)([0-9])",
+			"dopasPerTab\":4",
+			"(\\[)([0-9],[0-9])(\\]),([0-9])",
+			"(\\[)([0-9],[0-9])(\\]),([0-9])+",
+			"(\\[)([0-9],[0-9]),([0-9]),(\\])",
+			"(\\[)([0-9],[0-9]),([0-9])(,)",
+			"(\\[)([0-9],[0-9])(\\])(,)([0-9])(,)",
+			"(\\[)([0-9],[0-9])(\\]),([0-9],)+",
+			"([0-9],[0-9],)",
+			"([0-9],[0-9],)+",
+			"([0-9],[0-9])+",
+			"([0-9],[0-9])",
+			"matched",
+			"([0-9])(\")",
+			"\",",
+			":\"",
+			"ContextManager",
+			"\\t",
+			"\\t ",
+			" [1-9][0-2]*\\:[0-5][0-9]\\:[0-5][0-9] ..",
+			",",
+			" ",
+			"  ",
+			"^(.{1,2})$",
+			"(^0)(.)$",
+			"(^0).\\g{1}",
+			"(Grid:)+",
+			"918500",
+			"(d\\s)(\\d)",
+			"(Grid)",
+			"/(Grid)/",
+			"\\n",
+			"Grid",
+			"/Grid/",
+			"\\n[^\\l]+",
+			",",
+			",,,,,,,,,,,,,",
+			"0",
+			"\\n",
+			"knowledge\n",
+			" 0:00",
+			"Jan-09,",
+			",	",
+			"229079",
+			"Justin",
+			"vertical-tab"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"$1\\[$2\\]",
+			"$1$2,$4$3",
+			"$1$2,$3,\\],",
+			"$1$2,$3,\\]",
+			"$1$2,$5,",
+			"\\[$1\\]",
+			"$1",
+			",",
+			":",
+			": ",
+			"",
+			"\\t",
+			"\\1:{",
+			"\\2",
+			"01",
+			"418200",
+			"d:$2",
+			"$1",
+			"d:$1",
+			"d 5",
+			"z",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/Users/Dino/Downloads/xgb_main.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2544,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2305,
+								2543
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 747.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/Dino/Desktop/xgb_main.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1716,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								617,
+								617
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "gini_main.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 148,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 729,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								729,
+								729
+							]
+						],
+						"settings":
+						{
+							"auto_name": "SELECT designOrderId AS do_id, InventoryOrder.id A",
+							"syntax": "Packages/SQL/SQL.tmLanguage",
+							"word_wrap": true,
+							"wrap_width": 78
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 4,
+					"file": "json_convert.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 745,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								709,
+								709
+							]
+						],
+						"settings":
+						{
+							"rulers":
+							[
+								78
+							],
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7703,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								6079,
+								6079
+							]
+						],
+						"settings":
+						{
+							"auto_complete": true,
+							"auto_indent": false,
+							"detect_indentation": false,
+							"gutter": false,
+							"history_arrows": true,
+							"indent_subsequent_lines": false,
+							"line_numbers": false,
+							"repl": true,
+							"repl_external_id": "python",
+							"repl_id": "533d907533ff46dab8b394a57437e163",
+							"repl_restart_args":
+							{
+								"cmd":
+								[
+									"python",
+									"-i",
+									"-u"
+								],
+								"cwd": "$file_path",
+								"encoding": "utf8",
+								"extend_env":
+								{
+									"PYTHONIOENCODING": "utf-8"
+								},
+								"external_id": "python",
+								"syntax": "Packages/Python/Python.tmLanguage",
+								"type": "subprocess"
+							},
+							"repl_sublime2": false,
+							"smart_indent": false,
+							"spell_check": false,
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1167.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5792,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5784,
+								5784
+							]
+						],
+						"settings":
+						{
+							"auto_complete": true,
+							"auto_indent": false,
+							"detect_indentation": false,
+							"gutter": false,
+							"history_arrows": true,
+							"indent_subsequent_lines": false,
+							"line_numbers": false,
+							"repl": true,
+							"repl_external_id": "python",
+							"repl_id": "1010e69a810b46dc934f1b46d75f8fbb",
+							"repl_restart_args":
+							{
+								"cmd":
+								[
+									"python",
+									"-i",
+									"-u"
+								],
+								"cwd": "$file_path",
+								"encoding": "utf8",
+								"extend_env":
+								{
+									"PYTHONIOENCODING": "utf-8"
+								},
+								"external_id": "python",
+								"syntax": "Packages/Python/Python.tmLanguage",
+								"type": "subprocess"
+							},
+							"repl_sublime2": false,
+							"smart_indent": false,
+							"spell_check": false,
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 657.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 7,
+					"file": "newjson.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2547674,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								489,
+								489
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 19581,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								19580,
+								19580
+							]
+						],
+						"settings":
+						{
+							"auto_complete": true,
+							"auto_indent": false,
+							"detect_indentation": false,
+							"gutter": false,
+							"history_arrows": true,
+							"indent_subsequent_lines": false,
+							"line_numbers": false,
+							"repl": true,
+							"repl_external_id": "python",
+							"repl_id": "76778f26d8094aa08587254aae5cf352",
+							"repl_restart_args":
+							{
+								"cmd":
+								[
+									"python",
+									"-i",
+									"-u"
+								],
+								"cwd": "$file_path",
+								"encoding": "utf8",
+								"extend_env":
+								{
+									"PYTHONIOENCODING": "utf-8"
+								},
+								"external_id": "python",
+								"syntax": "Packages/Python/Python.tmLanguage",
+								"type": "subprocess"
+							},
+							"repl_sublime2": false,
+							"smart_indent": false,
+							"spell_check": false,
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 4572.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 32.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			],
+			[
+				2,
+				0,
+				3,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.396797933695,
+			0.765406965143,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.autopep8":
+	{
+		"height": 100.0
+	},
+	"output.exec":
+	{
+		"height": 118.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Packages/Python/Python.sublime-build",
+	"project": "MainPE.sublime-project",
+	"replace":
+	{
+		"height": 42.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 174.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 400.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 203.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
